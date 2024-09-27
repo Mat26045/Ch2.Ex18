@@ -1,26 +1,24 @@
 // Ch2.Ex18-Mtilley2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    const int NUM_SURVEYED = 16500;
+    int totalCustomers; 
+    const double percentPurchasing = 0.15; 
+    const double percentCitrusPreference = 0.58; 
 
-    float percent_1_or_more = .15,
-        percent_pref_citrus = .58,
-        total_1_or_more = NUM_SURVEYED * percent_1_or_more,
-        grand_total = total_1_or_more * percent_pref_citrus;
+    std::cout << "Enter the number of customers surveyed: ";
+    std::cin >> totalCustomers;
 
-    cout << endl << endl;
-    cout << "The approximate # of customers in the survey who\n";
-    cout << "purchase on or more energy drinks per week is ";
-    cout << total_1_or_more << endl;
+    int customersPurchasing = static_cast<int>(totalCustomers * percentPurchasing);
 
-    cout << "The approximate # of customers in the survey who\n";
-    cout << "prefer citrus-flavored energy drinks ";
-    cout << grand_total << endl;
-    cout << endl << endl;
+    int customersCitrusPreference = static_cast<int>(customersPurchasing * percentCitrusPreference);
+
+    std::cout << "Approximate number of customers who purchase one or more energy drinks per week: "
+        << customersPurchasing << std::endl;
+    std::cout << "Approximate number of customers who prefer citrus-flavored energy drinks: "
+        << customersCitrusPreference << std::endl;
+
     return 0;
 }
